@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem, removeItem } from "../redux/cartSlice";
+import Alert from "./Alert";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
+  const [success, setSuccess] = useState(false);
 
-  const handleAddToCart = () => {
-    dispatch(addItem(product));
+  const handleAddToCart = async () => {
+    await dispatch(addItem(product));
+    setSuccess(true);
+
+    setTimeout(() => {
+      setSuccess(false);
+    }, 1000);
   };
   // const handleRemoveFromCart = () => {
   //   dispatch(removeItem(product));
@@ -35,12 +42,20 @@ const ProductCard = ({ product }) => {
         </span> */}
       </div>
       <div className="px-6 py-4">
-        <button
-          onClick={handleAddToCart}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Add to Cart
-        </button>
+        {success ? (
+          <Alert
+            type="success"
+            message="Item added to the cart successfuly."
+            onClose={() => setSuccess(false)}
+          />
+        ) : (
+          <button
+            onClick={handleAddToCart}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Add to Cart
+          </button>
+        )}
         {/* <button
           onClick={handleRemoveFromCart}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

@@ -11,7 +11,14 @@ module.exports = {
         "2xl": "6rem",
       },
     },
-    extend: {},
+    extend: {
+      colors: {
+        "alert-success": "#d4edda",
+        "alert-error": "#f8d7da",
+        "alert-warning": "#fff3cd",
+        "alert-info": "#d1ecf1",
+      },
+    },
   },
   plugins: [],
 };

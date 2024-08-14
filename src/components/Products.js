@@ -20,11 +20,6 @@ const Products = () => {
         </div>
       </div>
     </div>
-    // <div className="container">
-    //   <div className=" grid grid-rows-4 grid-flow-col gap-x-8 gap-y-8">
-
-    //   </div>
-    // </div>
   );
 };
 
