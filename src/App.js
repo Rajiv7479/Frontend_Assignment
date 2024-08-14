@@ -1,6 +1,6 @@
-import CartPage from "./components/CartPage";
+import CartPage from "./pages/CartPage";
 import Navbar from "./components/Navbar";
-import Products from "./components/Products";
+import Products from "./pages/Products";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
