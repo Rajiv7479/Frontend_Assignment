@@ -1,14 +1,18 @@
+import CartPage from "./components/CartPage";
 import Navbar from "./components/Navbar";
 import Products from "./components/Products";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <div className="container max-w-full">
-      <Navbar />
-      <div className="py-10 flex items-center justify-center">
-        <h1 className="text-3xl font-bold underline">All Products</h1>
-      </div>
-      <Products />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
